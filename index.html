@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎂 Birthday Celebration</title>
+
+    <!-- Tailwind & Confetti -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <style>
+      .fade-in {
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+      }
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .fade {
+        transition: opacity 1s ease-in-out;
+      }
+    </style>
+  </head>
+
+  <body class="font-sans bg-gradient-to-br from-yellow-100 via-pink-100 to-blue-200 min-h-screen">
+    <!-- 🚀 LOADING SCREEN -->
+    <div
+      id="loadingScreen"
+      class="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-pink-400 via-orange-300 to-yellow-200 text-white text-center z-50"
+    >
+      <h1 class="text-3xl font-bold mb-4 animate-pulse">🎉 Loading Celebration...</h1>
+      <div class="w-64 h-4 bg-white/30 rounded-full overflow-hidden">
+        <div id="loadingBar" class="h-full bg-white rounded-full transition-all duration-200" style="width: 0%"></div>
+      </div>
+      <p class="mt-4 text-sm italic">Preparing the magic ✨</p>
+    </div>
+
+    <!-- 🌟 MAIN CONTENT -->
+    <div id="mainContent" class="hidden opacity-0 flex flex-col items-center justify-center text-center min-h-screen">
+      <h1 class="text-4xl font-bold text-pink-600 mb-4 animate-bounce">
+        🎉 Let the Celebration Begin!
+      </h1>
+
+      <p class="text-gray-700 text-lg mb-8">
+        Here’s your digital birthday card 💖 Enjoy the memories below!
+      </p>
+
+      <!-- 🖼️ PHOTO CAROUSEL -->
+      <div class="relative w-72 sm:w-96 h-60 sm:h-72 overflow-hidden rounded-2xl shadow-2xl">
+        <img src="WhatsApp Image 2025-10-06 at 15.50.57.jpeg" alt="Memory 1" class="absolute w-full h-full object-cover fade opacity-100" />
+        <img src="WhatsApp Image 2025-10-06 at 15.54.11.jpeg" alt="Memory 2" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="WhatsApp Image 2025-10-06 at 19.04.59.jpeg" alt="Memory 3" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="WhatsApp Image 2025-10-06 at 19.05.00 (1).jpeg" alt="Memory 4" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="WhatsApp Image 2025-10-06 at 19.05.00.jpeg" alt="Memory 5" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="WhatsApp Image 2025-10-06 at 19.05.01 (1).jpeg" alt="Memory 6" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="WhatsApp Image 2025-10-06 at 19.05.01.jpeg" alt="Memory 7" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="WhatsApp Image 2025-10-06 at 19.06.29.jpeg" alt="Memory 8" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="WhatsApp Image 2025-10-06 at 19.06.54.jpeg" alt="Memory 9" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="WhatsApp Image 2025-10-06 at 19.07.14.jpeg" alt="Memory 10" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="WhatsApp Image 2025-10-06 at 19.07.50.jpeg" alt="Memory 11" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="WhatsApp Image 2025-10-06 at 19.08.34.jpeg" alt="Memory 12" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="WhatsApp Image 2025-10-06 at 19.08.59.jpeg" alt="Memory 13" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="WhatsApp Image 2025-10-06 at 19.09.27.jpeg" alt="Memory 14" class="absolute w-full h-full object-cover fade opacity-0" />
+      </div>
+
+      <!-- 📖 CAPTION -->
+      <p id="caption" class="mt-4 text-base sm:text-lg text-gray-800 italic font-medium transition-opacity duration-700">
+        🎈 “The very first adventure together!”
+      </p>
+
+      <!-- 🎊 CONFETTI + MUSIC -->
+      <button
+        id="confettiBtn"
+        class="mt-8 bg-pink-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-pink-600 transition transform hover:scale-105"
+      >
+        🎊 Confetti Blast
+      </button>
+
+      <!-- 🎶 Background Music -->
+      <audio
+        id="bgMusic"
+        src="One of The Most Beautiful Songs Ever Written 🥹😭 (GET THE TISSUES READY) (35k)_1759766231667.oga"
+        loop
+        preload="auto"
+      ></audio>
+
+      <!-- 🔙 Back Button -->
+      <a
+        href="index.html"
+        class="mt-6 bg-white text-pink-600 font-semibold px-6 py-2 rounded-full border-2 border-pink-400 hover:bg-pink-100 transition"
+      >
+        ⬅ Back
+      </a>
+    </div>
+
+    <!-- 💫 SURPRISE MESSAGE POPUP -->
+    <div id="surprise" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
+      <div class="bg-white rounded-2xl p-6 text-center shadow-2xl max-w-sm mx-4">
+        <h2 class="text-2xl font-bold text-pink-600 mb-3">🎁 Surprise Message</h2>
+        <p class="text-gray-700 mb-4">
+          You are truly one of a kind. I’m so grateful for every moment with you 💖
+        </p>
+        <button
+          onclick="document.getElementById('surprise').classList.add('hidden')"
+          class="bg-pink-500 text-white rounded-full px-6 py-2 hover:bg-pink-600"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <!-- 💻 SCRIPT -->
+    <script>
+      const music = document.getElementById("bgMusic");
+
+      // Try playing music after load
+      function tryPlayMusic() {
+        music.play().catch(() => {
+          // If autoplay blocked, wait for user click
+          document.body.addEventListener(
+            "click",
+            () => {
+              music.play();
+            },
+            { once: true }
+          );
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const loadingScreen = document.getElementById("loadingScreen");
+        const loadingBar = document.getElementById("loadingBar");
+        const mainContent = document.getElementById("mainContent");
+
+        let progress = 0;
+        const progressInterval = setInterval(() => {
+          progress += 5;
+          loadingBar.style.width = progress + "%";
+
+          if (progress >= 100) {
+            clearInterval(progressInterval);
+            setTimeout(() => {
+              loadingScreen.style.transition = "opacity 0.8s ease";
+              loadingScreen.style.opacity = "0";
+              setTimeout(() => {
+                loadingScreen.style.display = "none";
+                mainContent.classList.remove("hidden");
+                mainContent.classList.add("fade-in");
+                confetti({ particleCount: 180, spread: 120, origin: { y: 0.6 } });
+                tryPlayMusic(); // 🎶 Start music here
+              }, 800);
+            }, 500);
+          }
+        }, 200);
+      });
+
+      const confettiBtn = document.getElementById("confettiBtn");
+      confettiBtn.addEventListener("click", () => {
+        confetti({ particleCount: 200, spread: 120, origin: { y: 0.6 } });
+      });
+
+      const slides = document.querySelectorAll(".fade");
+      const caption = document.getElementById("caption");
+      const comments = [
+        "🎈 “The very first adventure together!”",
+        "😂 “Still can’t believe this happened!”",
+        "💖 “Moments we’ll never forget.”",
+        "✨ “Every smile tells a story.”",
+        "😍 “Pure joy in every photo.”",
+        "🌸 “This day was magical.”",
+        "🎶 “Every moment, a melody.”",
+        "💫 “Beautiful inside and out.”",
+        "🌻 “Can’t help but smile at this one.”",
+        "❤️ “Forever grateful for you.”",
+        "🌈 “You make life colorful.”",
+        "☀️ “Sunshine in human form.”",
+        "🌹 “Unforgettable memories.”",
+        "💞 “Always cherished.”"
+      ];
+
+      let current = 0;
+      function showNextSlide() {
+        slides[current].style.opacity = "0";
+        current = (current + 1) % slides.length;
+        slides[current].style.opacity = "1";
+        caption.style.opacity = "0";
+        setTimeout(() => {
+          caption.textContent = comments[current];
+          caption.style.opacity = "1";
+        }, 400);
+      }
+      setInterval(showNextSlide, 4000);
+
+      // 🎁 Surprise popup after 57 seconds
+      setTimeout(() => {
+        document.getElementById("surprise").classList.remove("hidden");
+        confetti({ particleCount: 250, spread: 150 });
+      }, 57000);
+    </script>
+  </body>
+</html>
