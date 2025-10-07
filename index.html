@@ -51,20 +51,20 @@
 
       <!-- 🖼️ PHOTO CAROUSEL -->
       <div class="relative w-72 sm:w-96 h-60 sm:h-72 overflow-hidden rounded-2xl shadow-2xl">
-        <img src="WhatsApp Image 2025-10-06 at 15.50.57.jpeg" alt="Memory 1" class="absolute w-full h-full object-cover fade opacity-100" />
-        <img src="WhatsApp Image 2025-10-06 at 15.54.11.jpeg" alt="Memory 2" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="WhatsApp Image 2025-10-06 at 19.04.59.jpeg" alt="Memory 3" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="WhatsApp Image 2025-10-06 at 19.05.00 (1).jpeg" alt="Memory 4" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="WhatsApp Image 2025-10-06 at 19.05.00.jpeg" alt="Memory 5" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="WhatsApp Image 2025-10-06 at 19.05.01 (1).jpeg" alt="Memory 6" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="WhatsApp Image 2025-10-06 at 19.05.01.jpeg" alt="Memory 7" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="WhatsApp Image 2025-10-06 at 19.06.29.jpeg" alt="Memory 8" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="WhatsApp Image 2025-10-06 at 19.06.54.jpeg" alt="Memory 9" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="WhatsApp Image 2025-10-06 at 19.07.14.jpeg" alt="Memory 10" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="WhatsApp Image 2025-10-06 at 19.07.50.jpeg" alt="Memory 11" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="WhatsApp Image 2025-10-06 at 19.08.34.jpeg" alt="Memory 12" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="WhatsApp Image 2025-10-06 at 19.08.59.jpeg" alt="Memory 13" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="WhatsApp Image 2025-10-06 at 19.09.27.jpeg" alt="Memory 14" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 15.50.57.jpeg" alt="Memory 1" class="absolute w-full h-full object-cover fade opacity-100" />
+        <img src="images/WhatsApp Image 2025-10-06 at 15.54.11.jpeg" alt="Memory 2" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.04.59.jpeg" alt="Memory 3" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.05.00 (1).jpeg" alt="Memory 4" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.05.00.jpeg" alt="Memory 5" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.05.01 (1).jpeg" alt="Memory 6" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.05.01.jpeg" alt="Memory 7" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.06.29.jpeg" alt="Memory 8" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.06.54.jpeg" alt="Memory 9" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.07.14.jpeg" alt="Memory 10" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.07.50.jpeg" alt="Memory 11" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.08.34.jpeg" alt="Memory 12" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.08.59.jpeg" alt="Memory 13" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.09.27.jpeg" alt="Memory 14" class="absolute w-full h-full object-cover fade opacity-0" />
       </div>
 
       <!-- 📖 CAPTION -->
@@ -73,17 +73,26 @@
       </p>
 
       <!-- 🎊 CONFETTI + MUSIC -->
-      <button
-        id="confettiBtn"
-        class="mt-8 bg-pink-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-pink-600 transition transform hover:scale-105"
-      >
-        🎊 Confetti Blast
-      </button>
+      <div class="flex flex-col items-center gap-4 mt-8">
+        <button
+          id="confettiBtn"
+          class="bg-pink-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-pink-600 transition transform hover:scale-105"
+        >
+          🎊 Confetti Blast
+        </button>
+
+        <button
+          id="playMusicBtn"
+          class="bg-purple-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-purple-600 transition transform hover:scale-105"
+        >
+          ▶️ Play Music
+        </button>
+      </div>
 
       <!-- 🎶 Background Music -->
       <audio
         id="bgMusic"
-        src="One of The Most Beautiful Songs Ever Written 🥹😭 (GET THE TISSUES READY) (35k)_1759766231667.oga"
+        src="music/One of The Most Beautiful Songs Ever Written 🥹😭 (GET THE TISSUES READY) (35k)_1759766231667.oga"
         loop
         preload="auto"
       ></audio>
@@ -116,20 +125,17 @@
     <!-- 💻 SCRIPT -->
     <script>
       const music = document.getElementById("bgMusic");
+      const playMusicBtn = document.getElementById("playMusicBtn");
 
-      // Try playing music after load
-      function tryPlayMusic() {
-        music.play().catch(() => {
-          // If autoplay blocked, wait for user click
-          document.body.addEventListener(
-            "click",
-            () => {
-              music.play();
-            },
-            { once: true }
-          );
-        });
-      }
+      playMusicBtn.addEventListener("click", () => {
+        if (music.paused) {
+          music.play();
+          playMusicBtn.textContent = "⏸ Pause Music";
+        } else {
+          music.pause();
+          playMusicBtn.textContent = "▶️ Play Music";
+        }
+      });
 
       document.addEventListener("DOMContentLoaded", () => {
         const loadingScreen = document.getElementById("loadingScreen");
@@ -151,7 +157,6 @@
                 mainContent.classList.remove("hidden");
                 mainContent.classList.add("fade-in");
                 confetti({ particleCount: 180, spread: 120, origin: { y: 0.6 } });
-                tryPlayMusic(); // 🎶 Start music here
               }, 800);
             }, 500);
           }
@@ -193,13 +198,13 @@
           caption.style.opacity = "1";
         }, 400);
       }
-      setInterval(showNextSlide, 4000);
+      setInterval(showNextSlide, 7000);
 
       // 🎁 Surprise popup after 57 seconds
       setTimeout(() => {
         document.getElementById("surprise").classList.remove("hidden");
         confetti({ particleCount: 250, spread: 150 });
-      }, 57000);
+      }, 95000);
     </script>
   </body>
 </html>
