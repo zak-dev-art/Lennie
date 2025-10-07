@@ -20,27 +20,37 @@
       }
 
       .fade {
-        transition: opacity 1s ease-in-out;
+        transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
       }
 
-      /* 💋 Floating emoji animation */
+      /* 💋 Floating emoji bubbles */
       .emoji {
         position: fixed;
         font-size: 1.5rem;
         opacity: 0.9;
         z-index: 9999;
-        animation: floatUp 3s ease forwards;
+        animation: floatUp 4.5s ease-in-out forwards;
       }
 
       @keyframes floatUp {
         0% {
-          transform: translateY(0) rotate(0deg);
+          transform: translateY(0) scale(1) rotate(0deg);
           opacity: 1;
         }
+        50% {
+          opacity: 0.9;
+          transform: translateY(-80px) scale(1.3) rotate(20deg);
+        }
         100% {
-          transform: translateY(-150px) rotate(360deg);
+          transform: translateY(-200px) scale(1.6) rotate(360deg);
           opacity: 0;
         }
+      }
+
+      /* ✨ Glowing caption effect */
+      #caption.glow {
+        text-shadow: 0 0 10px #fbb6ce, 0 0 20px #f472b6, 0 0 30px #ec4899;
+        transition: all 1s ease;
       }
     </style>
   </head>
@@ -65,7 +75,7 @@
       </h1>
 
       <p class="text-gray-700 text-lg mb-8">
-        Here’s your digital birthday card 💖 Enjoy the memories below!
+        Here’s your digital birthday card 💖 Enjoy the moments of love and blessings below!
       </p>
 
       <!-- 🖼️ PHOTO CAROUSEL -->
@@ -87,8 +97,8 @@
       </div>
 
       <!-- 📖 CAPTION -->
-      <p id="caption" class="mt-4 text-base sm:text-lg text-gray-800 italic font-medium transition-opacity duration-700">
-        🎈 “The very first adventure together!”
+      <p id="caption" class="mt-4 text-base sm:text-lg text-gray-800 italic font-medium transition-opacity duration-700 glow">
+        💞 'Let all that you do be done in love.' – 1 Corinthians 16:14
       </p>
 
       <!-- 💋 KISS SHOWER + MUSIC -->
@@ -128,9 +138,15 @@
     <!-- 💫 SURPRISE MESSAGE POPUP -->
     <div id="surprise" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
       <div class="bg-white rounded-2xl p-6 text-center shadow-2xl max-w-sm mx-4">
-        <h2 class="text-2xl font-bold text-pink-600 mb-3">🎁 Surprise Message</h2>
-        <p class="text-gray-700 mb-4">
-          You are truly one of a kind. I’m so grateful for every moment with you 💖
+        <h2 class="text-2xl font-bold text-pink-600 mb-3">🙏 A Prayer for You</h2>
+        <p class="text-gray-700 mb-4 leading-relaxed">
+          Heavenly Father, thank You for the gift of love that binds our hearts together.  
+          May this bond grow stronger with every passing day, filled with laughter, grace, and peace.  
+          Bless every step we take together, and let Your presence always dwell between us. 💖  
+          <br /><br />
+          “The Lord bless you and keep you; the Lord make His face shine upon you and be gracious to you.”  
+          <br />
+          <strong>– Numbers 6:24–25 ✨</strong>
         </p>
         <button
           onclick="document.getElementById('surprise').classList.add('hidden')"
@@ -145,6 +161,9 @@
     <script>
       const music = document.getElementById("bgMusic");
       const playMusicBtn = document.getElementById("playMusicBtn");
+      const kissBtn = document.getElementById("kissBtn");
+      const slides = document.querySelectorAll(".fade");
+      const caption = document.getElementById("caption");
 
       // 🎵 Play / Pause Music
       playMusicBtn.addEventListener("click", () => {
@@ -183,8 +202,7 @@
         }, 200);
       });
 
-      // 💋 Romantic Emoji Shower
-      const kissBtn = document.getElementById("kissBtn");
+      // 💋 Romantic Emoji Bubbles
       kissBtn.addEventListener("click", () => {
         const emojis = ["💋", "❤️", "😘", "💞", "💖", "😍"];
         for (let i = 0; i < 25; i++) {
@@ -192,52 +210,83 @@
           emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
           emoji.classList.add("emoji");
           emoji.style.left = Math.random() * 100 + "vw";
-          emoji.style.top = Math.random() * 80 + "vh";
+          emoji.style.bottom = "0";
           emoji.style.fontSize = Math.random() * 2 + 1 + "rem";
+          emoji.style.animationDelay = Math.random() * 0.5 + "s";
           document.body.appendChild(emoji);
-          setTimeout(() => emoji.remove(), 3000);
+          setTimeout(() => emoji.remove(), 4500);
         }
       });
 
-      // 🖼️ Slideshow (6 seconds per image)
-      const slides = document.querySelectorAll(".fade");
-      const caption = document.getElementById("caption");
+      // 🖼️ Slideshow with love scriptures
       const comments = [
-        "🎈 “The very first adventure together!”",
-        "😂 “Still can’t believe this happened!”",
-        "💖 “Moments we’ll never forget.”",
-        "✨ “Every smile tells a story.”",
-        "😍 “Pure joy in every photo.”",
-        "🌸 “This day was magical.”",
-        "🎶 “Every moment, a melody.”",
-        "💫 “Beautiful inside and out.”",
-        "🌻 “Can’t help but smile at this one.”",
-        "❤️ “Forever grateful for you.”",
-        "🌈 “You make life colorful.”",
-        "☀️ “Sunshine in human form.”",
-        "🌹 “Unforgettable memories.”",
-        "💞 “Always cherished.”"
+        "💞 'Let all that you do be done in love.' – 1 Corinthians 16:14",
+        "❤️ 'I have found the one whom my soul loves.' – Song of Solomon 3:4",
+        "🌷 'Two are better than one, for they have a good reward for their labor.' – Ecclesiastes 4:9",
+        "💖 'Many waters cannot quench love; rivers cannot wash it away.' – Song of Solomon 8:7",
+        "🌸 'Above all, love each other deeply.' – 1 Peter 4:8",
+        "🌹 'And now these three remain: faith, hope and love. But the greatest is love.' – 1 Corinthians 13:13",
+        "💫 'What God has joined together, let no one separate.' – Mark 10:9",
+        "🌻 'You are altogether beautiful, my darling; there is no flaw in you.' – Song of Solomon 4:7",
+        "☀️ 'Let love and faithfulness never leave you.' – Proverbs 3:3",
+        "💐 'Love is patient, love is kind. It always protects, always trusts, always hopes.' – 1 Corinthians 13:4–7",
+        "✨ 'May the Lord make your love increase and overflow.' – 1 Thessalonians 3:12",
+        "🌿 'My beloved is mine and I am his.' – Song of Solomon 2:16",
+        "🌈 'Be patient, bearing with one another in love.' – Ephesians 4:2",
+        "💍 'I thank my God every time I remember you.' – Philippians 1:3"
       ];
 
+      const transitions = ["slide-left", "slide-right", "zoom-in", "zoom-out", "rotate"];
       let current = 0;
+
       function showNextSlide() {
         slides[current].style.opacity = "0";
+        slides[current].style.transform = "none";
         current = (current + 1) % slides.length;
-        slides[current].style.opacity = "1";
+        const next = slides[current];
+
+        const randomEffect = transitions[Math.floor(Math.random() * transitions.length)];
+        next.style.opacity = "1";
+
+        switch (randomEffect) {
+          case "slide-left":
+            next.style.transform = "translateX(-30px)";
+            break;
+          case "slide-right":
+            next.style.transform = "translateX(30px)";
+            break;
+          case "zoom-in":
+            next.style.transform = "scale(1.1)";
+            break;
+          case "zoom-out":
+            next.style.transform = "scale(0.9)";
+            break;
+          case "rotate":
+            next.style.transform = "rotate(4deg)";
+            break;
+        }
+
+        setTimeout(() => {
+          next.style.transform = "translateX(0) scale(1) rotate(0)";
+        }, 1000);
+
+        // ✨ Glowing caption animation
+        caption.classList.remove("glow");
         caption.style.opacity = "0";
         setTimeout(() => {
           caption.textContent = comments[current];
           caption.style.opacity = "1";
+          caption.classList.add("glow");
         }, 400);
       }
+
       setInterval(showNextSlide, 6000);
 
-      // 🎁 Surprise popup after 57 seconds
+      // 🎁 Surprise popup after 95 seconds
       setTimeout(() => {
         document.getElementById("surprise").classList.remove("hidden");
-        // Auto trigger a romantic kiss shower when surprise pops
         kissBtn.click();
-      }, 57000);
+      }, 95000);
     </script>
   </body>
 </html>
