@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🎂 Birthday Celebration</title>
 
-    <!-- Tailwind & Confetti -->
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
     <style>
       .fade-in {
@@ -22,6 +21,26 @@
 
       .fade {
         transition: opacity 1s ease-in-out;
+      }
+
+      /* 💋 Floating emoji animation */
+      .emoji {
+        position: fixed;
+        font-size: 1.5rem;
+        opacity: 0.9;
+        z-index: 9999;
+        animation: floatUp 3s ease forwards;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-150px) rotate(360deg);
+          opacity: 0;
+        }
       }
     </style>
   </head>
@@ -51,20 +70,20 @@
 
       <!-- 🖼️ PHOTO CAROUSEL -->
       <div class="relative w-72 sm:w-96 h-60 sm:h-72 overflow-hidden rounded-2xl shadow-2xl">
-        <img src="images/WhatsApp Image 2025-10-06 at 15.50.57.jpeg" alt="Memory 1" class="absolute w-full h-full object-cover fade opacity-100" />
-        <img src="images/WhatsApp Image 2025-10-06 at 15.54.11.jpeg" alt="Memory 2" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="images/WhatsApp Image 2025-10-06 at 19.04.59.jpeg" alt="Memory 3" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="images/WhatsApp Image 2025-10-06 at 19.05.00 (1).jpeg" alt="Memory 4" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="images/WhatsApp Image 2025-10-06 at 19.05.00.jpeg" alt="Memory 5" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="images/WhatsApp Image 2025-10-06 at 19.05.01 (1).jpeg" alt="Memory 6" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="images/WhatsApp Image 2025-10-06 at 19.05.01.jpeg" alt="Memory 7" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="images/WhatsApp Image 2025-10-06 at 19.06.29.jpeg" alt="Memory 8" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="images/WhatsApp Image 2025-10-06 at 19.06.54.jpeg" alt="Memory 9" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="images/WhatsApp Image 2025-10-06 at 19.07.14.jpeg" alt="Memory 10" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="images/WhatsApp Image 2025-10-06 at 19.07.50.jpeg" alt="Memory 11" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="images/WhatsApp Image 2025-10-06 at 19.08.34.jpeg" alt="Memory 12" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="images/WhatsApp Image 2025-10-06 at 19.08.59.jpeg" alt="Memory 13" class="absolute w-full h-full object-cover fade opacity-0" />
-        <img src="images/WhatsApp Image 2025-10-06 at 19.09.27.jpeg" alt="Memory 14" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 15.50.57.jpeg" class="absolute w-full h-full object-cover fade opacity-100" />
+        <img src="images/WhatsApp Image 2025-10-06 at 15.54.11.jpeg" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.04.59.jpeg" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.05.00 (1).jpeg" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.05.00.jpeg" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.05.01 (1).jpeg" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.05.01.jpeg" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.06.29.jpeg" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.06.54.jpeg" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.07.14.jpeg" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.07.50.jpeg" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.08.34.jpeg" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.08.59.jpeg" class="absolute w-full h-full object-cover fade opacity-0" />
+        <img src="images/WhatsApp Image 2025-10-06 at 19.09.27.jpeg" class="absolute w-full h-full object-cover fade opacity-0" />
       </div>
 
       <!-- 📖 CAPTION -->
@@ -72,13 +91,13 @@
         🎈 “The very first adventure together!”
       </p>
 
-      <!-- 🎊 CONFETTI + MUSIC -->
+      <!-- 💋 KISS SHOWER + MUSIC -->
       <div class="flex flex-col items-center gap-4 mt-8">
         <button
-          id="confettiBtn"
+          id="kissBtn"
           class="bg-pink-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-pink-600 transition transform hover:scale-105"
         >
-          🎊 Confetti Blast
+          💋 Kiss Shower
         </button>
 
         <button
@@ -127,6 +146,7 @@
       const music = document.getElementById("bgMusic");
       const playMusicBtn = document.getElementById("playMusicBtn");
 
+      // 🎵 Play / Pause Music
       playMusicBtn.addEventListener("click", () => {
         if (music.paused) {
           music.play();
@@ -137,6 +157,7 @@
         }
       });
 
+      // 🚀 Loading Animation
       document.addEventListener("DOMContentLoaded", () => {
         const loadingScreen = document.getElementById("loadingScreen");
         const loadingBar = document.getElementById("loadingBar");
@@ -156,18 +177,29 @@
                 loadingScreen.style.display = "none";
                 mainContent.classList.remove("hidden");
                 mainContent.classList.add("fade-in");
-                confetti({ particleCount: 180, spread: 120, origin: { y: 0.6 } });
               }, 800);
             }, 500);
           }
         }, 200);
       });
 
-      const confettiBtn = document.getElementById("confettiBtn");
-      confettiBtn.addEventListener("click", () => {
-        confetti({ particleCount: 200, spread: 120, origin: { y: 0.6 } });
+      // 💋 Romantic Emoji Shower
+      const kissBtn = document.getElementById("kissBtn");
+      kissBtn.addEventListener("click", () => {
+        const emojis = ["💋", "❤️", "😘", "💞", "💖", "😍"];
+        for (let i = 0; i < 25; i++) {
+          const emoji = document.createElement("div");
+          emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+          emoji.classList.add("emoji");
+          emoji.style.left = Math.random() * 100 + "vw";
+          emoji.style.top = Math.random() * 80 + "vh";
+          emoji.style.fontSize = Math.random() * 2 + 1 + "rem";
+          document.body.appendChild(emoji);
+          setTimeout(() => emoji.remove(), 3000);
+        }
       });
 
+      // 🖼️ Slideshow (6 seconds per image)
       const slides = document.querySelectorAll(".fade");
       const caption = document.getElementById("caption");
       const comments = [
@@ -198,13 +230,14 @@
           caption.style.opacity = "1";
         }, 400);
       }
-      setInterval(showNextSlide, 7000);
+      setInterval(showNextSlide, 6000);
 
       // 🎁 Surprise popup after 57 seconds
       setTimeout(() => {
         document.getElementById("surprise").classList.remove("hidden");
-        confetti({ particleCount: 250, spread: 150 });
-      }, 95000);
+        // Auto trigger a romantic kiss shower when surprise pops
+        kissBtn.click();
+      }, 57000);
     </script>
   </body>
 </html>
