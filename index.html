@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🎂 Birthday Celebration</title>
+    <title>💖 A Celebration of Grace and New Beginnings</title>
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -56,26 +56,29 @@
   </head>
 
   <body class="font-sans bg-gradient-to-br from-yellow-100 via-pink-100 to-blue-200 min-h-screen">
-    <!-- 🚀 LOADING SCREEN -->
+    <!-- 🌸 LOADING SCREEN -->
     <div
       id="loadingScreen"
       class="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-pink-400 via-orange-300 to-yellow-200 text-white text-center z-50"
     >
-      <h1 class="text-3xl font-bold mb-4 animate-pulse">🎉 Loading Celebration...</h1>
+      <h1 class="text-3xl font-bold mb-4 animate-pulse">Lennie, My Chocolatie Queen💖...</h1>
       <div class="w-64 h-4 bg-white/30 rounded-full overflow-hidden">
         <div id="loadingBar" class="h-full bg-white rounded-full transition-all duration-200" style="width: 0%"></div>
       </div>
-      <p class="mt-4 text-sm italic">Preparing the magic ✨</p>
+     <p class="mt-7 text-3xl font-bold italic text-black tracking-wide" style="text-shadow: 0 0 8px rgba(0,0,0,0.2);">
+  Happy Birthday, ✨
+</p>
+
     </div>
 
     <!-- 🌟 MAIN CONTENT -->
     <div id="mainContent" class="hidden opacity-0 flex flex-col items-center justify-center text-center min-h-screen">
       <h1 class="text-4xl font-bold text-pink-600 mb-4 animate-bounce">
-        🎉 Let the Celebration Begin!
+        💖 A Celebration of Grace and New Beginnings 💖
       </h1>
 
-      <p class="text-gray-700 text-lg mb-8">
-        Here’s your digital birthday card 💖 Enjoy the moments of love and blessings below!
+      <p class="text-gray-700 text-lg mb-8 italic">
+        As you step into this beautiful new season, may joy overflow, grace abound, and every dream written on your heart begin to unfold. 🌸
       </p>
 
       <!-- 🖼️ PHOTO CAROUSEL -->
@@ -98,16 +101,16 @@
 
       <!-- 📖 CAPTION -->
       <p id="caption" class="mt-4 text-base sm:text-lg text-gray-800 italic font-medium transition-opacity duration-700 glow">
-        💞 'Let all that you do be done in love.' – 1 Corinthians 16:14
+        🌷 "May this season be filled with answered prayers, quiet miracles, and love that never fades." 🌷
       </p>
 
-      <!-- 💋 KISS SHOWER + MUSIC -->
+      <!-- 💋 LOVE BUTTON + MUSIC -->
       <div class="flex flex-col items-center gap-4 mt-8">
         <button
           id="kissBtn"
           class="bg-pink-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-pink-600 transition transform hover:scale-105"
         >
-          💋 Kiss Shower
+          💋 From My Heart to Yours
         </button>
 
         <button
@@ -135,24 +138,41 @@
       </a>
     </div>
 
-    <!-- 💫 SURPRISE MESSAGE POPUP -->
-    <div id="surprise" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
-      <div class="bg-white rounded-2xl p-6 text-center shadow-2xl max-w-sm mx-4">
-        <h2 class="text-2xl font-bold text-pink-600 mb-3">🙏 A Prayer for You</h2>
+    <!-- 💞 A LOVE BENEDICTION -->
+    <div id="loveBenediction" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
+      <div class="bg-white rounded-2xl p-6 text-center shadow-2xl max-w-sm mx-4 overflow-y-auto max-h-[90vh]">
+        <h2 class="text-2xl font-bold text-pink-600 mb-3">💞 A Love Benediction 💞</h2>
         <p class="text-gray-700 mb-4 leading-relaxed">
-          Heavenly Father, thank You for the gift of love that binds our hearts together.  
-          May this bond grow stronger with every passing day, filled with laughter, grace, and peace.  
-          Bless every step we take together, and let Your presence always dwell between us. 💖  
+          My Dearest Love,  
           <br /><br />
-          “The Lord bless you and keep you; the Lord make His face shine upon you and be gracious to you.”  
+          As you walk into this new season, may heaven crown you with joy unending and peace that never fades.  
+          May your laughter echo with grace and your heart overflow with hope. 🌸  
+          <br /><br />
+          I thank God daily for the gift of you — your light, your strength, your beauty, and your faith.  
+          You are a reflection of Proverbs 31:25 — *“Clothed with strength and dignity, and you laugh without fear of the future.”*  
+          <br /><br />
+          I speak over you Numbers 6:24–26 —  
+          *“The Lord bless you and keep you; the Lord make His face shine upon you and be gracious to you;  
+          the Lord turn His face toward you and give you peace.”* ✨  
+          <br /><br />
+          And as for me, my heart makes this promise:  
+          I will walk beside you through every sunrise and storm.  
+          I will pray for you, believe with you, and love you in the pattern of 1 Corinthians 13 —  
+          *patiently, kindly, faithfully, and without end.* 💞  
+          <br /><br />
+          You are my answered prayer, and I vow to cherish you as God cherishes His beloved — with grace, honor, and truth.  
+          Song of Solomon 3:4 says, *“I have found the one whom my soul loves.”*  
+          That one is you. 💖  
+          <br /><br />
+          Forever yours, in faith, love, and prayer.  
           <br />
-          <strong>– Numbers 6:24–25 ✨</strong>
+          <span class="text-pink-600 font-semibold text-lg">💋 — Yours, Always</span>
         </p>
         <button
-          onclick="document.getElementById('surprise').classList.add('hidden')"
+          onclick="document.getElementById('loveBenediction').classList.add('hidden')"
           class="bg-pink-500 text-white rounded-full px-6 py-2 hover:bg-pink-600"
         >
-          Close
+          💞 With All My Love
         </button>
       </div>
     </div>
@@ -218,22 +238,22 @@
         }
       });
 
-      // 🖼️ Slideshow with love scriptures
+      // 🖼️ Slideshow with prayer captions
       const comments = [
-        "💞 'Let all that you do be done in love.' – 1 Corinthians 16:14",
-        "❤️ 'I have found the one whom my soul loves.' – Song of Solomon 3:4",
-        "🌷 'Two are better than one, for they have a good reward for their labor.' – Ecclesiastes 4:9",
-        "💖 'Many waters cannot quench love; rivers cannot wash it away.' – Song of Solomon 8:7",
-        "🌸 'Above all, love each other deeply.' – 1 Peter 4:8",
-        "🌹 'And now these three remain: faith, hope and love. But the greatest is love.' – 1 Corinthians 13:13",
-        "💫 'What God has joined together, let no one separate.' – Mark 10:9",
-        "🌻 'You are altogether beautiful, my darling; there is no flaw in you.' – Song of Solomon 4:7",
-        "☀️ 'Let love and faithfulness never leave you.' – Proverbs 3:3",
-        "💐 'Love is patient, love is kind. It always protects, always trusts, always hopes.' – 1 Corinthians 13:4–7",
-        "✨ 'May the Lord make your love increase and overflow.' – 1 Thessalonians 3:12",
-        "🌿 'My beloved is mine and I am his.' – Song of Solomon 2:16",
-        "🌈 'Be patient, bearing with one another in love.' – Ephesians 4:2",
-        "💍 'I thank my God every time I remember you.' – Philippians 1:3"
+        "🌸 'May this new season usher you into divine peace, radiant joy, and unshakable confidence in God’s plan for your life.'",
+        "💖 'You will rise with strength, walk in favor, and bloom in beauty like never before.'",
+        "🌷 'Every sunrise will speak of new grace, and every sunset will whisper of answered prayers.'",
+        "🌿 'May your heart overflow with gratitude, laughter, and love that multiplies each day.'",
+        "🌹 'In this new chapter, may you be surrounded by kindness, guided by light, and covered by His mercy.'",
+        "💞 'Heaven’s blessings chase after you — peace in your mind, joy in your soul, and purpose in your path.'",
+        "✨ 'May your dreams align with divine timing, and your steps be ordered with wisdom and love.'",
+        "🌻 'This season will be filled with surprises from heaven — beauty, favor, and breakthrough in abundance.'",
+        "🌺 'You are cherished, chosen, and called for greatness — nothing will be missing or broken in your story.'",
+        "☀️ 'May love surround you like sunlight and grace cover you like a gentle morning dew.'",
+        "💐 'Every prayer you’ve whispered in secret is finding its way into reality — heaven is responding.'",
+        "🌈 'Your smile will be brighter, your faith deeper, and your heart more anchored in love.'",
+        "🌷 'God’s goodness will follow you closely, and His peace will rest upon you always.'",
+        "💎 'This is your season of beauty, restoration, and divine fulfillment — nothing shall be withheld from you.'"
       ];
 
       const transitions = ["slide-left", "slide-right", "zoom-in", "zoom-out", "rotate"];
@@ -282,9 +302,9 @@
 
       setInterval(showNextSlide, 6000);
 
-      // 🎁 Surprise popup after 95 seconds
+      // 💞 Show Love Benediction after 95 seconds
       setTimeout(() => {
-        document.getElementById("surprise").classList.remove("hidden");
+        document.getElementById("loveBenediction").classList.remove("hidden");
         kissBtn.click();
       }, 95000);
     </script>
