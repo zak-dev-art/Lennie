@@ -106,8 +106,14 @@ function App() {
             key={i}
             src={`/images/${img}`}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-            style={{ opacity: i === currentSlide ? 1 : 0 }}
+            className={`absolute inset-0 w-full h-full object-cover slide-transition ${
+              i === currentSlide ? 'slide-active' : ''
+            }`}
+            style={{ 
+              opacity: i === currentSlide ? 1 : 0,
+              transform: i === currentSlide ? 'scale(1)' : 'scale(1.05)',
+              filter: i === currentSlide ? 'brightness(1)' : 'brightness(0.8)'
+            }}
           />
         ))}
       </div>

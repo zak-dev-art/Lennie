@@ -26,10 +26,35 @@
   100% { transform: translateY(-300px) scale(1.8) rotate(360deg); opacity: 0; }
 }
 
+@keyframes slideZoom {
+  0% { transform: scale(1.1); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideLeft {
+  0% { transform: translateX(100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  0% { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
 .float { animation: float 3s ease-in-out infinite; }
 .emoji {
   position: fixed;
   z-index: 9999;
   animation: floatUp 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   pointer-events: none;
+}
+
+.slide-transition {
+  transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-active {
+  animation: slideZoom 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
