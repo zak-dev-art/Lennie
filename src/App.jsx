@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import './App.css'
 
 const images = [
   'WhatsApp Image 2025-10-06 at 15.50.57.jpeg',
