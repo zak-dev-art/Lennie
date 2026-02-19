@@ -39,6 +39,7 @@ function App() {
   const [progress, setProgress] = useState(0)
   const [currentSlide, setCurrentSlide] = useState(0)
   const [showBenediction, setShowBenediction] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef(null)
 
   useEffect(() => {
@@ -66,7 +67,7 @@ function App() {
 
   useEffect(() => {
     if (!loading && audioRef.current) {
-      audioRef.current.play().catch(err => console.log('Autoplay blocked:', err))
+      audioRef.current.play().then(() => setIsPlaying(true)).catch(() => {})
       const timer = setTimeout(() => {
         setShowBenediction(true)
       }, 95000)
@@ -115,7 +116,20 @@ function App() {
         {captions[currentSlide]}
       </p>
 
-
+      <button 
+        onClick={() => {
+          if (isPlaying) {
+            audioRef.current.pause()
+            setIsPlaying(false)
+          } else {
+            audioRef.current.play()
+            setIsPlaying(true)
+          }
+        }}
+        className="fixed bottom-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white/60 hover:text-white/90 transition-all duration-300 flex items-center justify-center text-sm"
+      >
+        {isPlaying ? '⏸' : '▶'}
+      </button>
 
       <audio ref={audioRef} src="/music/One of The Most Beautiful Songs Ever Written 🥹😭 (GET THE TISSUES READY) (35k)_1759766231667.oga" loop autoPlay />
 
